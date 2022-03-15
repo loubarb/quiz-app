@@ -3,9 +3,13 @@ import React, { useState } from 'react';
 export default function App() {
 	const [currentQuestion, setCurrentQuestion] = useState(0);
 
-	const handleAnswerButtonClick = (answerOption) => {
+	const handleAnswerButtonClick = () => {
 		const nextQuestion = currentQuestion + 1;
-		setCurrentQuestion(nextQuestion);
+		if (nextQuestion < questions.length) {
+			setCurrentQuestion(nextQuestion);
+		} else {
+			alert('You have reached the end of the quiz');
+		}
 	}
 
 	const questions = [
